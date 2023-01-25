@@ -1,0 +1,105 @@
+/*################################
+Global Page style
+################################*/
+
+body {
+    padding: 10px;
+}
+p{
+    font-family: Copperplate;
+}
+h5{
+    font-family: Copperplate;
+}
+label{
+    font-family: Copperplate;
+    font-size: 1.3rem;
+}
+.page-title{
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    font-family: Copperplate;
+}
+.small-title{
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+/*################################
+Items style
+################################*/
+.item{
+    border-style: solid;
+    border-color: rgb(211, 208, 208);
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    padding: 1rem;
+}
+.item-text-cont{
+    margin: auto;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+.item-active{
+    color: green;
+}
+.item-inactive{
+    color:crimson
+}
+.comment-item{
+    border-style: solid;
+    border-color: rgb(216, 232, 246);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+#comment-area{
+    margin-top: 1rem;
+}
+.winner{
+    font-family: 'Brush Script MT', cursive;
+    font-size: 5rem;
+    text-align: center;
+}
+
+/*################################
+New auction Page style
+################################*/
+.form{
+    width: 70%;
+    border-style: solid;
+    border-color: rgb(211, 208, 208);
+    margin: auto;
+    padding: 1rem;
+}
+form{
+    margin-bottom: 2rem;
+}
+
+
+/*################################
+Categories Page style
+################################*/
+
+.category-item{
+    font-size: 2rem;
+    border-style: solid;
+    border-color: rgb(211, 208, 208);
+    text-align: center;
+}
+
+
+.error-button{
+    text-align: center;
+}
+#error-button{
+    padding: 1rem;
+    font-size: 1.5rem;
+}

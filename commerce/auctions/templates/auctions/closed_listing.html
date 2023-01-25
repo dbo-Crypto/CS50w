@@ -1,0 +1,22 @@
+{% extends "auctions/layout.html" %} {% block body %}
+<h2 class="page-title">Closed Listings</h2>
+
+{% for auction in auctions %}
+{% if auction.active == False %}
+<div class="item container-fluid">
+  <div class="item-text-cont col-5" >
+    <a class="item-link" href="/item/{{auction.title}}">
+      <h5 class="item-title">{{ auction.title }}</h5>
+      <p class="item-description">{{auction.description }}</p>
+      <p class="item-price">{{auction.price }}</p>
+      <p class="item-inactive">Auction Inactive</p>
+    </a>
+  </div>
+  <div class="item-img-cont col-5">
+      <img class="item-img" src="/static/media/{{auction.image}}">
+  </div>
+  {% endif %}
+
+</div>
+
+{% endfor %} {% endblock %}

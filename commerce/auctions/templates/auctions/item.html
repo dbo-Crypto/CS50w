@@ -1,0 +1,92 @@
+{% extends "auctions/layout.html" %} {% block body %}
+
+
+{% for auction in auctions %}
+{% if auction.title == title %}
+<div class="item container-fluid">
+    <div class="item-text-cont col-5" >
+      <a class="item-link" href="/item/{{auction.title}}">
+        <h5 class="item-title">{{ auction.title }}</h5>
+      <p class="item-description">{{auction.description }}</p>
+      <p class="item-price">${{auction.price }}</p>
+    </a>
+    </div>
+    <div class="item-imgcol-5">
+        {% if auction.image == "Empty" %}
+        <img class="item-img img-fluid" src="/static/media/images/sorry.jpeg">
+        {% else %}
+        <img class="item-img img-fluid" src="/static/media/{{auction.image}}">
+        {% endif %}
+    </div>
+    {% if user.is_authenticated %}
+    <form action="{% url 'watchlist' %}" method="post">
+        {% csrf_token %}
+        <input type="text" id="user" name="user" value="{{ user.username }}" hidden>
+        <input type="text" id="title" name="title" value="{{ title }}" hidden>
+        {% if checked == True %}
+        <input class="btn btn-warning" type="submit" id="watchlist" name="watchlist" value="Remove from Watchlist">
+        {%elif checked == False %}
+        <input class="btn btn-warning" type="submit" id="watchlist" name="watchlist" value="Add to Watchlist">
+        {%endif%}
+    </form>
+    {% endif %}
+  </div>
+{% endif %} 
+{% endfor %} 
+<div class="form">
+    {% if user.is_authenticated %}
+    {% if active == True %}
+        <form action="{% url 'bid' %}" method="post">
+            {% csrf_token %}
+            <input type="text" id="user" name="user" value="{{ user.username }}" hidden>
+            <input type="text" id="title" name="title" value="{{ title }}" hidden>
+            <input type="text" id="bid" name="bid" placeholder="Bid amount">
+            <input class="btn btn-success" type="submit" value="Bid">
+        </form>
+    {% endif %}
+
+        {% if current_vendor == current_user %}
+        {% if active == True %}
+        <form action="{% url 'close' %}" method="post">
+            {% csrf_token %}
+            <input type="text" id="title" name="title" value="{{ title }}" hidden>
+            <input class="btn btn-danger" type="submit" id="action" name="action" value="Close Auction">
+        </form>
+        {%elif active == False and current_user ==  admin%}
+        <form action="{% url 'close' %}" method="post">
+            {% csrf_token %}
+            <input type="text" id="title" name="title" value="{{ title }}" hidden>
+            <input class="btn btn-success" type="submit" id="action" name="action" value="Re-Open Auction">
+        </form>
+        {% endif %}
+        {% endif %}
+
+        {% if current_user == winner and active == False %}
+        <h4 class="winner">Congrat's you won this auction !!</h4>
+        {% endif %}
+
+        <form action="{% url 'comment' %}" method="post">
+            {% csrf_token %}
+            <input type="text" id="user" name="user" value="{{ user.username }}" hidden>
+            <input type="text" id="title" name="title" value="{{ title }}" hidden>
+            <textarea class="form-control" id="comment-area" type="text" id="comment" name="comment"></textarea><br>
+            <input class="btn btn-primary" type="submit" value="Comment">
+        </form>
+
+
+    
+    {%endif%}   
+    <h5 class="small-title">Comments</h5> 
+    
+        {% for comment in all_comments %}
+        <div class="comment-item">
+        <p>Author : {{comment.author}}</p>
+        <p>{{comment.comment}}</p>
+    </div>
+    
+    {% endfor %}
+    
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "auctions/layout.html" %} {% block body %}
+
+<h2 class="page-title">List a new item for auction:</h2>
+<form class="form" action="{% url 'new' %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <label for="item_name">Item title : </label>
+  <input class="form-control" type="text" name="item_title" placeholder="Title" required/><br />
+
+  <label for="start_price">Starting Bid : </label>
+  <input class="form-control " type="text" name="auction_price" placeholder="Starting Bid" required/><br />
+
+  <label for="description">Description : </label>
+  <textarea class="form-control " type="text" name="description" placeholder="Description" required></textarea
+  ><br />
+
+  <label for="img">Image : </label>
+  <input class="form-control " type="file" name="img" /><br />
+
+
+  <label for="category">Category : </label>
+  <select class="form-control " name="category" id="category">
+    <option value="categories" selected>Categories</option>
+    <option value="Broom">Broom</option>
+    <option value="Wand">Wand</option>
+    <option value="Plant">Plant</option>
+    <option value="Robe">Robe</option>
+  </select><br/>
+  <input class="btn btn-primary" type="submit" value="Auction Item!"/>
+</form>
+
+{% endblock %}

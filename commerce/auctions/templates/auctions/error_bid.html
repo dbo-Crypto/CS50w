@@ -1,0 +1,11 @@
+{% extends "auctions/layout.html" %} {% block body %}
+<h2 class="page-title">Oups, something went wrong...</h2>
+
+<div>
+    <p class="winner">Incorrect Bid amount</p>
+</div>
+<div class="error-button">
+    <button class="btn btn-secondary" id="error-button" onclick="history.back()">Go Back</button>
+</div>
+
+{% endblock %}

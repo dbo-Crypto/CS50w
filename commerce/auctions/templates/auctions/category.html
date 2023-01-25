@@ -1,0 +1,28 @@
+{% extends "auctions/layout.html" %} {% block body %}
+<h2 class="page-title">{{category}}</h2>
+
+
+   {% for item in category_list %}
+   <div class="item container-fluid">
+      <div class="item-text-cont col-5" >
+        <a class="item-link" href="/item/{{item.title}}">
+          <h5 class="item-title">{{ item.title }}</h5>
+        <p class="item-description">{{item.description }}</p>
+        <p class="item-price">${{item.price }}</p>
+      </a>
+      </div>
+      <div class="item-imgcol-5">
+         {% if item.image == "Empty" %}
+         <img class="item-img img-fluid" src="/static/media/images/sorry.jpeg">
+         {% else %}
+         <img class="item-img img-fluid" src="/static/media/{{item.image}}">
+         {% endif %}
+     </div>
+    
+    </div>
+
+   {% endfor %}
+
+
+
+{% endblock %}
