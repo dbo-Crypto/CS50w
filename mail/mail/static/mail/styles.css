@@ -1,3 +1,24 @@
 textarea {
     min-height: 400px;
 }
+
+.sender{
+    font-weight: bold;
+    margin-left: 10px;
+}
+.body{
+    text-align: right;
+}
+.mail_item{
+    border-style: solid;
+    margin-top: 3px;
+}
+
+p{
+    display: inline;
+}
+
+.col-6{
+    text-align: right;
+    margin-right: 10px;
+}
