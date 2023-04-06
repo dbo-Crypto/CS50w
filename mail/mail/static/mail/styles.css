@@ -13,12 +13,15 @@ textarea {
     border-style: solid;
     margin-top: 3px;
 }
+.mail_body{
+    margin-top: 1rem;
+}
 
 p{
     display: inline;
 }
 
-.col-6{
+.col-2{
     text-align: right;
     margin-right: 10px;
 }
