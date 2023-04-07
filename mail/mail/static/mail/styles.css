@@ -2,26 +2,33 @@ textarea {
     min-height: 400px;
 }
 
-.sender{
-    font-weight: bold;
-    margin-left: 10px;
+.child{
+    display: inline-block;
+    margin-top: 3px;
+    text-align: center;
 }
+
 .body{
     text-align: right;
 }
 .mail_item{
-    border-style: solid;
     margin-top: 3px;
+    padding: 2px;
 }
 .mail_body{
     margin-top: 1rem;
+    border-style: solid;
+    padding: 1rem;
+    
+}
+.ChildText{
+    margin:auto;
+    text-align: center;
+}
+#button{
+    text-align: center;
 }
 
-p{
-    display: inline;
-}
-
-.col-2{
-    text-align: right;
-    margin-right: 10px;
+.category{
+    margin: 1rem;
 }
